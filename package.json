@@ -8,8 +8,8 @@
     "build": "webpack --config webpack.config.js",
     "watch": "webpack-dev-server",
     "test": "jest",
-    "tslint": "tslint 'app/**/*.ts' 'tests/**/*.ts'",
-    "format": "prettier --ignore-path .tslintignore --single-quote --trailing-comma all --write \"tests/**/*.ts\" \"app/**/*.{ts,tsx}\""
+    "tslint": "tslint 'app/**/*.ts{,x}' 'tests/**/*.ts'",
+    "format": "prettier --ignore-path .tslintignore --single-quote --trailing-comma all --write \"tests/**/*.ts\" \"app/**/*.ts{,x}\""
   },
   "author": "",
   "license": "ISC",
