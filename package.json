@@ -4,8 +4,67 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack-dev-server",
+    "test": "jest",
+    "tslint": "tslint 'app/**/*.ts' 'tests/**/*.ts'",
+    "format": "prettier --ignore-path .tslintignore --single-quote --trailing-comma all --write \"tests/**/*.ts\" \"app/**/*.{ts,tsx}\""
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run tslint"
+    }
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.base.json"
+      }
+    },
+    "verbose": true,
+    "testURL": "http://localhost/",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "dependencies": {
+    "react": "16.5.0",
+    "react-dom": "16.5.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "7.0.0",
+    "@babel/preset-react": "7.0.0",
+    "@babel/preset-typescript": "7.0.0",
+    "@types/jest": "23.3.2",
+    "@types/react": "16.4.14",
+    "@types/react-dom": "16.0.7",
+    "awesome-typescript-loader": "5.2.1",
+    "fbjs-scripts": "0.8.3",
+    "husky": "0.14.3",
+    "jest": "23.6.0",
+    "prettier": "1.14.2",
+    "source-map-loader": "0.2.4",
+    "ts-jest": "23.1.4",
+    "tslint": "5.11.0",
+    "typescript": "3.0.3",
+    "webpack": "4.18.0",
+    "webpack-cli": "3.1.0",
+    "webpack-dev-server": "3.1.8"
+  },
+  "devEngines": {
+    "node": ">=8.x",
+    "npm": ">=3.x"
+  }
 }

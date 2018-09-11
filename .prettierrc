@@ -1,0 +1,11 @@
+{
+  "overrides": [
+    {
+      "files": [".babelrc", "tslint.json"],
+      "options": {
+        "parser": "json"
+      }
+    }
+  ],
+  "singleQuote": true
+}

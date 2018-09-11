@@ -1,0 +1,45 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "rules": {
+        "arrow-parens": false,
+        "quotemark": [
+            true,
+            "single",
+            "jsx-double"
+        ],
+        "semicolon": [
+            true,
+            "always"
+        ],
+        "interface-name": [
+            true,
+            "never-prefix"
+        ],
+        "ordered-imports": false,
+        "align": false,
+        "object-literal-sort-keys": false,
+        "no-console": [
+            true,
+            "debug",
+            "info",
+            "time",
+            "timeEnd",
+            "trace"
+        ],
+        "no-empty": false,
+        "member-access": false,
+        "object-literal-key-quotes": [true, "as-needed"],
+        "no-var-requires": false,
+        "max-line-length": [true, {"limit": 120, "ignore-pattern": "^import |^export {(.*?)} |//| *"}],
+        "ban-types": false
+    },
+    "linterOptions": {
+        "exclude": [
+            "dist/**/*",
+            "**/node_modules/**/*"
+        ]
+    }
+}
