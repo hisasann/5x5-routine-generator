@@ -24,7 +24,9 @@ const TitleElement = ({ classes, children }) => (
 
 const StyledTitleElement = injectSheet(styles)(TitleElement);
 
-export interface TitleProps {}
+export interface TitleProps {
+  classes?: any;
+}
 
 export class Title extends React.Component<TitleProps, {}> {
   render() {
