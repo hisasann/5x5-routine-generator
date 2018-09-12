@@ -16,12 +16,11 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": false,
     "skipLibCheck": true,
+    "lib": ["esnext", "dom"],
     "types": ["jest"],
     "baseUrl": "./",
     "paths": {"*": ["types/*"]},
     "typeRoots": ["types", "node_modules/@types"],
-    "module": "commonjs",
-    "target": "es5",
     "jsx": "react"
   },
   "exclude": ["**/node_modules/**/*"]
