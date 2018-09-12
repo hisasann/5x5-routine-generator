@@ -1,9 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import { Hello } from './components/Hello';
+import { RoutineGenerator } from './containers/RoutineGenerator';
 
-ReactDOM.render(
-  <Hello compiler="TypeScript" framework="hisasann" />,
-  document.getElementById('root'),
-);
+ReactDOM.render(<RoutineGenerator />, document.getElementById('root'));
