@@ -6,14 +6,14 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { validationNumberFormat } from '../validator/validation-number-format';
 
 const styles = {
   root: {
     width: '100%',
     overflowX: 'auto',
   },
-  head: {
-  },
+  head: {},
   body: {
     fontSize: 14,
   },
@@ -54,8 +54,10 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
   componentWillReceiveProps(nextProps) {
     console.log('DayContentsClass componentWillReceiveProps: ', nextProps);
 
-    if (nextProps.srm && nextProps.srm !== '0') {
-      this.createData(nextProps.srm);
+    const srm = nextProps.srm;
+
+    if (srm && srm !== '0' && validationNumberFormat(srm)) {
+      this.createData(srm);
     } else {
       this.setState({
         rows: [],
@@ -64,11 +66,11 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
   }
 
   createData(srm) {
-    let rows = [];
+    const rows = [];
 
     let id = 0;
     for (let i = 0; i < 16; i++) {
-      let data = {
+      const data = {
         id: i,
         day: i + 1,
         setCount: [],
