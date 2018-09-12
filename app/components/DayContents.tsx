@@ -59,10 +59,14 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
     if (srm && srm !== '0' && validationNumberFormat(srm)) {
       this.createData(srm);
     } else {
-      this.setState({
-        rows: [],
-      });
+      this.initializeData();
     }
+  }
+
+  initializeData() {
+    this.setState({
+      rows: [],
+    });
   }
 
   createData(srm) {
