@@ -1,5 +1,6 @@
 {
   "name": "5x5-routine-generator",
+  "productName": "5x5-routine-generator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,8 +12,21 @@
     "tslint": "tslint 'app/**/*.ts{,x}' 'tests/**/*.ts'",
     "format": "prettier --ignore-path .tslintignore --single-quote --trailing-comma all --write \"tests/**/*.ts\" \"app/**/*.ts{,x}\""
   },
-  "author": "",
+  "author": {
+    "name": "hisasann",
+    "email": "hisasann25@gmail.com",
+    "url": "https://github.com/hisasann"
+  },
   "license": "ISC",
+  "keywords": [
+    "typescript",
+    "workout",
+    "jest"
+  ],
+  "bugs": {
+    "url": "https://github.com/hisasann/5x5-routine-generator/issues"
+  },
+  "homepage": "https://github.com/hisasann/5x5-routine-generator#readme",
   "husky": {
     "hooks": {
       "pre-commit": "npm run tslint"
@@ -52,6 +66,7 @@
     "@types/react": "16.4.14",
     "@types/react-dom": "16.0.7",
     "awesome-typescript-loader": "5.2.1",
+    "classnames": "2.2.6",
     "fbjs-scripts": "0.8.3",
     "husky": "0.14.3",
     "jest": "23.6.0",
