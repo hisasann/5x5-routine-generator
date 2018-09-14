@@ -1,5 +1,3 @@
-/// <reference path="../../types/require/index.d.ts" />
-
 /**
  * プロジェクト名
  * @type {string}

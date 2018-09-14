@@ -17,7 +17,7 @@
     "allowSyntheticDefaultImports": false,
     "skipLibCheck": true,
     "lib": ["esnext", "dom"],
-    "types": ["jest"],
+    "types": ["node", "jest"],
     "baseUrl": "./",
     "paths": {"*": ["types/*"]},
     "typeRoots": ["types", "node_modules/@types"],
