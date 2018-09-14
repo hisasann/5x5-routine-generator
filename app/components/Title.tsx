@@ -30,7 +30,7 @@ const TitleElement = ({ classes, children }) => (
         <a href="https://github.com/hisasann">
           <Avatar
             alt="hisasann"
-            src="http://hisasann.github.io//public/images/hisasann.jpg"
+            src="https://hisasann.github.io//public/images/hisasann.jpg"
             className={classNames(classes.avatar, classes.bigAvatar)}
           />
         </a>
