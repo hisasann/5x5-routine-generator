@@ -123,12 +123,12 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
         <Table className={classes.table}>
           <TableHead className={classes.head}>
             <TableRow>
-              <CustomTableCell>Day</CustomTableCell>
-              <CustomTableCell numeric>Set 1</CustomTableCell>
-              <CustomTableCell numeric>Set 2</CustomTableCell>
-              <CustomTableCell numeric>Set 3</CustomTableCell>
-              <CustomTableCell numeric>Set 4</CustomTableCell>
-              <CustomTableCell numeric>Set 5</CustomTableCell>
+              <CustomTableCell padding='checkbox'>Day</CustomTableCell>
+              <CustomTableCell padding='none'>Set 1</CustomTableCell>
+              <CustomTableCell padding='none'>Set 2</CustomTableCell>
+              <CustomTableCell padding='none'>Set 3</CustomTableCell>
+              <CustomTableCell padding='none'>Set 4</CustomTableCell>
+              <CustomTableCell padding='none'>Set 5</CustomTableCell>
             </TableRow>
           </TableHead>
           <TableBody className={classes.body}>
@@ -142,14 +142,14 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
 
               return (
                 <TableRow key={row.id} className={rowClassName} onClick={this.handleRowClick.bind(this, row.id)}>
-                  <TableCell component="th" scope="row">
+                  <TableCell component="th" scope="row" padding='checkbox'>
                     Day {row.day}
                   </TableCell>
-                  <TableCell numeric>{row.setCount[0]}</TableCell>
-                  <TableCell numeric>{row.setCount[1]}</TableCell>
-                  <TableCell numeric>{row.setCount[2]}</TableCell>
-                  <TableCell numeric>{row.setCount[3]}</TableCell>
-                  <TableCell numeric>{row.setCount[4]}</TableCell>
+                  <TableCell padding='none'>{row.setCount[0]}</TableCell>
+                  <TableCell padding='none'>{row.setCount[1]}</TableCell>
+                  <TableCell padding='none'>{row.setCount[2]}</TableCell>
+                  <TableCell padding='none'>{row.setCount[3]}</TableCell>
+                  <TableCell padding='none'>{row.setCount[4]}</TableCell>
                 </TableRow>
               );
             })}
