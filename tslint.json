@@ -34,7 +34,8 @@
         "object-literal-key-quotes": [true, "as-needed"],
         "no-var-requires": false,
         "max-line-length": [true, {"limit": 120, "ignore-pattern": "^import |^export {(.*?)} |//| *"}],
-        "ban-types": false
+        "ban-types": false,
+        "no-reference": false
     },
     "linterOptions": {
         "exclude": [
