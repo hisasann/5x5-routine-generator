@@ -6,9 +6,9 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
-    "build": "webpack --config webpack.config.js",
-    "watch": "webpack-dev-server",
-    "test": "jest",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "watch": "cross-env NODE_ENV=development webpack-dev-server",
+    "test": "cross-env NODE_ENV=development jest",
     "tslint": "tslint 'app/**/*.ts{,x}' 'tests/**/*.ts'",
     "format": "prettier --ignore-path .tslintignore --single-quote --trailing-comma all --write \"tests/**/*.ts\" \"app/**/*.ts{,x}\""
   },
@@ -67,6 +67,7 @@
     "@types/react-dom": "16.0.7",
     "awesome-typescript-loader": "5.2.1",
     "classnames": "2.2.6",
+    "cross-env": "5.2.0",
     "fbjs-scripts": "0.8.3",
     "husky": "0.14.3",
     "jest": "23.6.0",
