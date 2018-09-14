@@ -5,6 +5,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Title } from '../components/Title';
 import { Controller } from '../components/Controller';
 import { DayContents } from '../components/DayContents';
+import { Footer } from '../components/Footer';
 import blue from '@material-ui/core/colors/blue';
 import pink from '@material-ui/core/colors/pink';
 
@@ -44,6 +45,7 @@ class RoutineGeneratorClass extends React.Component<RoutineGeneratorProps, {}> {
         <Controller handleChange={this.handleChange} />
         <Divider />
         <DayContents srm={this.state.srm} />
+        <Footer />
       </MuiThemeProvider>
     );
   }
