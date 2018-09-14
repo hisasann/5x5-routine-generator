@@ -47,8 +47,15 @@ export interface DayContentsProps {
 
 class DayContentsClass extends React.Component<DayContentsProps, {}> {
   state = {
+    rowId: undefined,
     rows: [],
   };
+
+  componentDidMount() {
+    this.setState({
+      rowId: parseInt(localStorage.getItem('rowId'), 10)
+    });
+  }
 
   componentWillReceiveProps(nextProps) {
     console.log('DayContentsClass componentWillReceiveProps: ', nextProps);
@@ -64,6 +71,7 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
 
   initializeData() {
     this.setState({
+      rowId: undefined,
       rows: [],
     });
   }
@@ -79,7 +87,7 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
         setCount: [],
       };
 
-      for (let j = 0; j < 5; j++) {
+      for (let j = 0; j < C.calcDataRowCount; j++) {
         data.setCount.push(this.calculateRoutineData(srm, C.calcData[i][j]));
       }
 
@@ -97,6 +105,15 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
     weight = weight - (weight % 2.5);
     return weight + ' x 5';
   }
+
+  handleRowClick = (rowId) => {
+    console.log('handleRowClick', rowId);
+
+    localStorage.setItem('rowId', rowId);
+    this.setState({
+      rowId: parseInt(localStorage.getItem('rowId'), 10)
+    });
+  };
 
   render() {
     const { classes } = this.props;
@@ -116,8 +133,15 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
           </TableHead>
           <TableBody className={classes.body}>
             {this.state.rows.map(row => {
+              let rowClassName;
+              if (this.state.rowId === row.id) {
+                rowClassName = classes.rowSelected;
+              } else {
+                rowClassName = classes.rowDefault;
+              }
+
               return (
-                <TableRow key={row.id} className={classes.rowDefault}>
+                <TableRow key={row.id} className={rowClassName} onClick={this.handleRowClick.bind(this, row.id)}>
                   <TableCell component="th" scope="row">
                     Day {row.day}
                   </TableCell>

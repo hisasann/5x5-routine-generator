@@ -27,6 +27,7 @@ const Constants = {
     [75, 80, 85, 90, 95],
     [80, 85, 90, 95, 100],
   ],
+  calcDataRowCount: 5,
 };
 
 console.log('Constants: ', Constants);

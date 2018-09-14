@@ -18,15 +18,28 @@ class ControllerClass extends React.Component<ControllerProps, {}> {
     srm: '',
   };
 
-  handleChange = srm => event => {
-    console.log('ControllerClass handleChange: ', event.target.value);
+  componentDidMount() {
+    const loadedSrm = localStorage.getItem('srm');
+    if (loadedSrm) {
+      this.changeSrm(loadedSrm);
+    }
+  }
 
-    this.props.handleChange(event.target.value);
+  handleChange = srm => event => {
+    this.changeSrm(event.target.value);
+  };
+
+  changeSrm(value) {
+    console.log('ControllerClass changeSrm: ', value);
+
+    this.props.handleChange(value);
 
     this.setState({
-      [srm]: event.target.value,
+      srm: value,
     });
-  };
+
+    localStorage.setItem('srm', value);
+  }
 
   render() {
     const { classes } = this.props;
