@@ -1,5 +1,7 @@
 # :lipstick: 5x5-routine-generator :lipstick:
 
+[5x5 Routine Generator](https://5x5-routine-generator.netlify.com/)
+
 ### Install dependencies.
 
 ```bash
