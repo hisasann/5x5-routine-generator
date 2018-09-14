@@ -1,5 +1,6 @@
 import * as React from 'react';
 import injectSheet from 'react-jss';
+import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -7,6 +8,17 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { validationNumberFormat } from '../validator/validation-number-format';
+import C from '../common/constants';
+
+const CustomTableCell = withStyles(theme => ({
+  head: {
+    backgroundColor: '#f50057',
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
 
 const styles = {
   root: {
@@ -20,26 +32,13 @@ const styles = {
   table: {
     minWidth: 700,
   },
+  rowDefault: {
+    backgroundColor: 'white',
+  },
+  rowSelected: {
+    backgroundColor: 'pink',
+  },
 };
-
-const calcData = [
-  [55, 60, 65, 70, 75],
-  [60, 65, 70, 75, 80],
-  [55, 60, 65, 70, 75],
-  [60, 65, 70, 75, 80],
-  [65, 70, 75, 80, 85],
-  [60, 65, 70, 75, 80],
-  [65, 70, 75, 80, 85],
-  [70, 75, 80, 85, 90],
-  [65, 70, 75, 80, 85],
-  [70, 75, 80, 85, 90],
-  [75, 80, 85, 90, 95],
-  [70, 75, 80, 85, 90],
-  [75, 80, 85, 90, 95],
-  [80, 85, 90, 95, 100],
-  [75, 80, 85, 90, 95],
-  [80, 85, 90, 95, 100],
-];
 
 export interface DayContentsProps {
   classes: any;
@@ -73,7 +72,7 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
     const rows = [];
 
     let id = 0;
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < C.calcData.length; i++) {
       const data = {
         id: i,
         day: i + 1,
@@ -81,7 +80,7 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
       };
 
       for (let j = 0; j < 5; j++) {
-        data.setCount.push(this.calculateRoutineData(srm, calcData[i][j]));
+        data.setCount.push(this.calculateRoutineData(srm, C.calcData[i][j]));
       }
 
       rows.push(data);
@@ -107,18 +106,18 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
         <Table className={classes.table}>
           <TableHead className={classes.head}>
             <TableRow>
-              <TableCell>Day</TableCell>
-              <TableCell numeric>Set 1</TableCell>
-              <TableCell numeric>Set 2</TableCell>
-              <TableCell numeric>Set 3</TableCell>
-              <TableCell numeric>Set 4</TableCell>
-              <TableCell numeric>Set 5</TableCell>
+              <CustomTableCell>Day</CustomTableCell>
+              <CustomTableCell numeric>Set 1</CustomTableCell>
+              <CustomTableCell numeric>Set 2</CustomTableCell>
+              <CustomTableCell numeric>Set 3</CustomTableCell>
+              <CustomTableCell numeric>Set 4</CustomTableCell>
+              <CustomTableCell numeric>Set 5</CustomTableCell>
             </TableRow>
           </TableHead>
           <TableBody className={classes.body}>
             {this.state.rows.map(row => {
               return (
-                <TableRow key={row.id}>
+                <TableRow key={row.id} className={classes.rowDefault}>
                   <TableCell component="th" scope="row">
                     Day {row.day}
                   </TableCell>
