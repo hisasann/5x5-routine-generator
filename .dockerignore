@@ -1,0 +1,10 @@
+.git/
+images/
+internals/
+node_modules/
+coverage/
+.gitignore
+.editorconfig
+npm-debug.log
+yarn-error.log
+README.md

@@ -1,0 +1,7 @@
+version: '3'
+services:
+  web:
+    image: 5x5-routine-generator
+    build: .
+    ports:
+     - '3000:3000'
