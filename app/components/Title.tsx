@@ -6,6 +6,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 
+/**
+ * styles
+ * @type {{}}
+ */
 const styles = {
   title: {
     flexGrow: 1,
@@ -20,6 +24,13 @@ const styles = {
   },
 };
 
+/**
+ * TitleElement
+ * @param {any} classes
+ * @param {any} children
+ * @returns {any}
+ * @constructor
+ */
 const TitleElement = ({ classes, children }) => (
   <div className={classes.title}>
     <AppBar position="static" color="primary">
@@ -41,10 +52,16 @@ const TitleElement = ({ classes, children }) => (
 
 const StyledTitleElement = injectSheet(styles)(TitleElement);
 
+/**
+ * TitleProps
+ */
 export interface TitleProps {
   classes?: any;
 }
 
+/**
+ * Title
+ */
 export class Title extends React.Component<TitleProps, {}> {
   render() {
     return <StyledTitleElement />;

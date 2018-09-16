@@ -10,6 +10,10 @@ import Paper from '@material-ui/core/Paper';
 import { validationNumberFormat } from '../validator/validation-number-format';
 import C from '../common/constants';
 
+/**
+ * CustomTableCell
+ * @type {}
+ */
 const CustomTableCell = withStyles(theme => ({
   head: {
     backgroundColor: '#f50057',
@@ -20,6 +24,10 @@ const CustomTableCell = withStyles(theme => ({
   },
 }))(TableCell);
 
+/**
+ * styles
+ * @type {{}}}
+ */
 const styles = {
   root: {
     width: '100%',
@@ -40,11 +48,17 @@ const styles = {
   },
 };
 
+/**
+ * DayContentsProps
+ */
 export interface DayContentsProps {
   classes: any;
   srm: string;
 }
 
+/**
+ * DayContentsClass
+ */
 class DayContentsClass extends React.Component<DayContentsProps, {}> {
   state = {
     rowId: undefined,
@@ -63,12 +77,16 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
     const srm = nextProps.srm;
 
     if (srm && srm !== '0' && validationNumberFormat(srm)) {
+      // srm の値が、数値（0以外）の場合だけ計算する
       this.createData(srm);
     } else {
       this.initializeData();
     }
   }
 
+  /**
+   * state の初期化
+   */
   initializeData() {
     this.setState({
       rowId: undefined,
@@ -76,6 +94,10 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
     });
   }
 
+  /**
+   * 画面に表示する 5x5 データを作成する
+   * @param srm
+   */
   createData(srm) {
     const rows = [];
 
@@ -100,12 +122,22 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
     });
   }
 
+  /**
+   * ルーティンの値を計算する
+   * @param srm
+   * @param data
+   * @returns {string}
+   */
   calculateRoutineData(srm, data) {
     let weight = Math.ceil((parseInt(srm, 10) / 100) * data);
     weight = weight - (weight % 2.5);
     return weight + ' x 5';
   }
 
+  /**
+   * TableRow の click handler
+   * @param rowId
+   */
   handleRowClick = (rowId) => {
     console.log('handleRowClick', rowId);
 
@@ -133,6 +165,7 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
           </TableHead>
           <TableBody className={classes.body}>
             {this.state.rows.map(row => {
+              // state の rowId と同じ id の場合は着色する
               let rowClassName;
               if (this.state.rowId === row.id) {
                 rowClassName = classes.rowSelected;

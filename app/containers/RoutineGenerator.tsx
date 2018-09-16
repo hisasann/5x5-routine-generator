@@ -9,8 +9,16 @@ import { Footer } from '../components/Footer';
 import blue from '@material-ui/core/colors/blue';
 import pink from '@material-ui/core/colors/pink';
 
+/**
+ * styles
+ * @type {{}}
+ */
 const styles = {};
 
+/**
+ * theme
+ * @type {Theme}
+ */
 const theme = createMuiTheme({
   palette: {
     primary: blue,
@@ -18,15 +26,25 @@ const theme = createMuiTheme({
   },
 });
 
+/**
+ * RoutineGeneratorProps
+ */
 export interface RoutineGeneratorProps {
   classes: any;
 }
 
+/**
+ * RoutineGeneratorClass
+ */
 class RoutineGeneratorClass extends React.Component<RoutineGeneratorProps, {}> {
   state = {
     srm: '',
   };
 
+  /**
+   * Controller 内で callback してもらうための handler
+   * @param srm
+   */
   handleChange = srm => {
     console.log('RoutineGeneratorClass handleChange: ' + srm);
 

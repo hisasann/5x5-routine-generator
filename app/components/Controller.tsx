@@ -2,33 +2,53 @@ import * as React from 'react';
 import injectSheet from 'react-jss';
 import TextField from '@material-ui/core/TextField';
 
+/**
+ * styles
+ * @type {{}}
+ */
 const styles = {
   textField: {
     width: 250,
   },
 };
 
+/**
+ * ControllerProps
+ */
 export interface ControllerProps {
   classes: any;
   handleChange: (srm: string) => {};
 }
 
+/**
+ * ControllerClass
+ */
 class ControllerClass extends React.Component<ControllerProps, {}> {
   state = {
     srm: '',
   };
 
   componentDidMount() {
+    // ローカルストレージに SRM がある場合は、イベントを fire する
     const loadedSrm = localStorage.getItem('srm');
     if (loadedSrm) {
       this.changeSrm(loadedSrm);
     }
   }
 
+  /**
+   * SRM を入力する TextField の change handler
+   * @param srm
+   * @returns {(event) => void}
+   */
   handleChange = srm => event => {
     this.changeSrm(event.target.value);
   };
 
+  /**
+   * SRM 変更処理
+   * @param value
+   */
   changeSrm(value) {
     console.log('ControllerClass changeSrm: ', value);
 
