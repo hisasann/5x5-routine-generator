@@ -67,7 +67,7 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
 
   componentDidMount() {
     this.setState({
-      rowId: parseInt(localStorage.getItem('rowId'), 10)
+      rowId: parseInt(localStorage.getItem('rowId'), 10),
     });
   }
 
@@ -138,12 +138,12 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
    * TableRow の click handler
    * @param rowId
    */
-  handleRowClick = (rowId) => {
+  handleRowClick = rowId => {
     console.log('handleRowClick', rowId);
 
     localStorage.setItem('rowId', rowId);
     this.setState({
-      rowId: parseInt(localStorage.getItem('rowId'), 10)
+      rowId: parseInt(localStorage.getItem('rowId'), 10),
     });
   };
 
@@ -155,12 +155,12 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
         <Table className={classes.table}>
           <TableHead className={classes.head}>
             <TableRow>
-              <CustomTableCell padding='checkbox'>Day</CustomTableCell>
-              <CustomTableCell padding='none'>Set 1</CustomTableCell>
-              <CustomTableCell padding='none'>Set 2</CustomTableCell>
-              <CustomTableCell padding='none'>Set 3</CustomTableCell>
-              <CustomTableCell padding='none'>Set 4</CustomTableCell>
-              <CustomTableCell padding='none'>Set 5</CustomTableCell>
+              <CustomTableCell padding="checkbox">Day</CustomTableCell>
+              <CustomTableCell padding="none">Set 1</CustomTableCell>
+              <CustomTableCell padding="none">Set 2</CustomTableCell>
+              <CustomTableCell padding="none">Set 3</CustomTableCell>
+              <CustomTableCell padding="none">Set 4</CustomTableCell>
+              <CustomTableCell padding="none">Set 5</CustomTableCell>
             </TableRow>
           </TableHead>
           <TableBody className={classes.body}>
@@ -174,15 +174,19 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
               }
 
               return (
-                <TableRow key={row.id} className={rowClassName} onClick={this.handleRowClick.bind(this, row.id)}>
-                  <TableCell component="th" scope="row" padding='checkbox'>
+                <TableRow
+                  key={row.id}
+                  className={rowClassName}
+                  onClick={this.handleRowClick.bind(this, row.id)}
+                >
+                  <TableCell component="th" scope="row" padding="checkbox">
                     Day {row.day}
                   </TableCell>
-                  <TableCell padding='none'>{row.setCount[0]}</TableCell>
-                  <TableCell padding='none'>{row.setCount[1]}</TableCell>
-                  <TableCell padding='none'>{row.setCount[2]}</TableCell>
-                  <TableCell padding='none'>{row.setCount[3]}</TableCell>
-                  <TableCell padding='none'>{row.setCount[4]}</TableCell>
+                  <TableCell padding="none">{row.setCount[0]}</TableCell>
+                  <TableCell padding="none">{row.setCount[1]}</TableCell>
+                  <TableCell padding="none">{row.setCount[2]}</TableCell>
+                  <TableCell padding="none">{row.setCount[3]}</TableCell>
+                  <TableCell padding="none">{row.setCount[4]}</TableCell>
                 </TableRow>
               );
             })}

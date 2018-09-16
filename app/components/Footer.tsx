@@ -10,7 +10,8 @@ const styles = {
 
 const FooterElement = ({ classes, children }) => (
   <div className={classes.footer}>
-    github: <a href="https://github.com/hisasann/5x5-routine-generator" target="_blank">
+    github:{' '}
+    <a href="https://github.com/hisasann/5x5-routine-generator" target="_blank">
       hisasann/5x5-routine-generator
     </a>
   </div>
