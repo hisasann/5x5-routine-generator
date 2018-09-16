@@ -21,7 +21,10 @@
   "keywords": [
     "typescript",
     "workout",
-    "jest"
+    "react",
+    "jss",
+    "jest",
+    "material-ui"
   ],
   "bugs": {
     "url": "https://github.com/hisasann/5x5-routine-generator/issues"
