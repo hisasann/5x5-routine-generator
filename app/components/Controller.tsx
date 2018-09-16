@@ -8,7 +8,7 @@ import TextField from '@material-ui/core/TextField';
  */
 const styles = {
   textField: {
-    width: 250,
+    width: 300,
   },
 };
 
@@ -68,7 +68,7 @@ class ControllerClass extends React.Component<ControllerProps, {}> {
       <div>
         <TextField
           id="srm"
-          label="Enter Your Current Maximum"
+          label=" Enter your current Single Rep Max (SRM)"
           placeholder="80"
           className={classes.textField}
           value={this.state.srm}

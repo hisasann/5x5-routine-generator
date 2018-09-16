@@ -36,7 +36,7 @@ const TitleElement = ({ classes, children }) => (
     <AppBar position="static" color="primary">
       <Toolbar>
         <Typography variant="title" color="inherit" className={classes.grow}>
-          5x5 Routine Generator
+          16 Week 5x5 Workout Routine Generator - hisasann
         </Typography>
         <a href="https://github.com/hisasann">
           <Avatar
