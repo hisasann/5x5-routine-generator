@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { validationNumberFormat } from '../validator/validation-number-format';
+import { calculateRoutineData } from '../utils/calculate-routine-data';
 import C from '../common/constants';
 
 /**
@@ -110,7 +111,7 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
       };
 
       for (let j = 0; j < C.calcDataRowCount; j++) {
-        data.setCount.push(this.calculateRoutineData(srm, C.calcData[i][j]));
+        data.setCount.push(calculateRoutineData(srm, C.calcData[i][j]));
       }
 
       rows.push(data);
@@ -120,18 +121,6 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
     this.setState({
       rows,
     });
-  }
-
-  /**
-   * ルーティンの値を計算する
-   * @param srm
-   * @param data
-   * @returns {string}
-   */
-  calculateRoutineData(srm, data) {
-    let weight = Math.ceil((parseInt(srm, 10) / 100) * data);
-    weight = weight - (weight % 2.5);
-    return weight + ' x 5';
   }
 
   /**
