@@ -5,7 +5,7 @@
 const calculateRoutineData = (srm, data) => {
   let weight = Math.ceil((parseInt(srm, 10) / 100) * data);
   weight = weight - (weight % 2.5);
-  return weight + ' x 5';
+  return weight;
 };
 
 export { calculateRoutineData };

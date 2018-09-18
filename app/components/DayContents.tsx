@@ -111,7 +111,7 @@ class DayContentsClass extends React.Component<DayContentsProps, {}> {
       };
 
       for (let j = 0; j < C.calcDataRowCount; j++) {
-        data.setCount.push(calculateRoutineData(srm, C.calcData[i][j]));
+        data.setCount.push(calculateRoutineData(srm, C.calcData[i][j]) + ' x 5');
       }
 
       rows.push(data);
